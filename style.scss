@@ -1,0 +1,186 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  transition: all 0.4s ease;
+}
+
+
+$Pale-blue: hsl(225, 100%, 94%);
+$Bright-blue: hsl(245, 75%, 52%);
+$Very-pale-blue: hsl(225, 100%, 98%);
+$Desaturated-blue: hsl(224, 23%, 55%);
+$Dark-blue: hsl(223, 47%, 23%);
+
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select,
+span {
+  font: inherit;
+}
+
+@function hover-lighten($color){
+    $color: lighten($color, 15%);
+    @return $color;
+}
+
+@function hover-darken($color){
+    $color: darken($color, 15%);
+    @return $color;
+}
+
+@mixin shadowing{
+    box-shadow: 0 1em 1.7em rgba($color: #000, $alpha: 0.2);
+}
+
+body{
+    background: rgba($color: #E0E8FF, $alpha: 1.0) url(images/pattern-background-desktop.svg) no-repeat;
+    background-size: contain;
+    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card{
+    max-width: 25rem;
+    margin: 0 2em;
+    background-color: white;
+    border-radius: 1em 1em 1em 1em;
+    text-align: center;
+    color: $Desaturated-blue;
+    font-family: 'Red Hat Display', sans-serif;
+    box-shadow: 0 1em 5em rgba($color: #000, $alpha: 0.2);
+
+    &__hero-image{
+        max-width: 100%;
+        border-radius: 1em 1em 0 0;
+    }
+
+    &__content{
+    padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        p{
+            padding: 0 1em;
+            font-size: 0.9rem;
+        }
+        > *+*{
+            margin-top: 1.6em;
+        }
+        &__title{
+            color: $Dark-blue;
+            font-weight: 900;
+            line-height: 0.7;
+            font-size: 1.625rem;
+        }
+    }
+    &__button{
+        background-color: $Bright-blue;
+        color: white;
+        border: none;
+        padding: 0.5em;
+        border-radius: 0.6rem;
+        @include shadowing;
+        transition: all 0.2s ease;
+    }
+
+    &__button:hover{
+        background-color: hover-lighten($Bright-blue);
+    }
+
+    &__cancel{
+        text-decoration: none;
+        color: inherit;
+        font-weight: 700;
+    }
+    &__cancel:hover{
+        color: hover-darken($Dark-blue);
+    }
+}
+
+.plan{
+    padding: 1.5rem;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $Very-pale-blue;
+    font-size: 1rem;
+    &--annual{
+        font-size: 1em;
+        margin-right: 2.5em;
+        font-weight: 500;
+        span {
+            color: $Dark-blue;
+            font-weight: 700;
+        }
+    }
+    &__change:hover{
+        color: hover-lighten( $Bright-blue );
+    }
+}
+
+@media all and(max-width: 465px){
+    .card__content{
+        padding: 2rem 1.5rem;
+    }
+    .plan{
+        font-size: 0.9em;
+    }
+
+
+    .plan--annual{
+        margin-right: 0;
+    }
+}

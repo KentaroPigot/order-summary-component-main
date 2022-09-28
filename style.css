@@ -1,0 +1,157 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  transition: all 0.4s ease;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select,
+span {
+  font: inherit;
+}
+
+body {
+  background: #e0e8ff url(images/pattern-background-desktop.svg) no-repeat;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  max-width: 25rem;
+  margin: 0 2em;
+  background-color: white;
+  border-radius: 1em 1em 1em 1em;
+  text-align: center;
+  color: hsl(224deg, 23%, 55%);
+  font-family: "Red Hat Display", sans-serif;
+  box-shadow: 0 1em 5em rgba(0, 0, 0, 0.2);
+}
+.card__hero-image {
+  max-width: 100%;
+  border-radius: 1em 1em 0 0;
+}
+.card__content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.card__content p {
+  padding: 0 1em;
+  font-size: 0.9rem;
+}
+.card__content > * + * {
+  margin-top: 1.6em;
+}
+.card__content__title {
+  color: hsl(223deg, 47%, 23%);
+  font-weight: 900;
+  line-height: 0.7;
+  font-size: 1.625rem;
+}
+.card__button {
+  background-color: hsl(245deg, 75%, 52%);
+  color: white;
+  border: none;
+  padding: 0.5em;
+  border-radius: 0.6rem;
+  box-shadow: 0 1em 1.7em rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+.card__button:hover {
+  background-color: #766cea;
+}
+.card__cancel {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 700;
+}
+.card__cancel:hover {
+  color: #0b101e;
+}
+
+.plan {
+  padding: 1.5rem;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: hsl(225deg, 100%, 98%);
+  font-size: 1rem;
+}
+.plan--annual {
+  font-size: 1em;
+  margin-right: 2.5em;
+  font-weight: 500;
+}
+.plan--annual span {
+  color: hsl(223deg, 47%, 23%);
+  font-weight: 700;
+}
+.plan__change:hover {
+  color: #766cea;
+}
+
+@media all and (max-width: 465px) {
+  .card__content {
+    padding: 2rem 1.5rem;
+  }
+  .plan {
+    font-size: 0.9em;
+  }
+  .plan--annual {
+    margin-right: 0;
+  }
+}/*# sourceMappingURL=style.css.map */
